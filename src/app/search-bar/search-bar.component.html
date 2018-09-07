@@ -10,21 +10,21 @@
     <figcaption>Photo by {{pictureAuthor}} on Unsplash</figcaption>
   </figure>
 </section>
-<section *ngIf="wiki">
+<div *ngIf="hasWiki">
   <h2>Wikipedia</h2>
   <ul class='news-list'>
-    <li *ngFor='let oneWiki of wiki'>
-      <ul *ngFor='let details of oneWiki'>
-        <h3>{{ details }}</h3>
-      </ul>
+    <li *ngFor='let title of wikiTitle; let idx = index'>
+      <h3>{{title}}</h3>
+      <a href="{{ wikiAnchor[idx] }}"> {{ wikiInfo[idx] }}</a>
     </li>
-</ul>
-</section>
+  </ul>
+</div>
+
 <section *ngIf="news">
   <h2>News</h2>
   <ul class='news-list'>
     <li *ngFor="let oneNews of news">
-      <a href='{{oneNews.web_url}}'>{{ oneNews.snippet }}</a>
+      <a href='{{ oneNews.web_url }}'>{{ oneNews.snippet }}</a>
     </li>
   </ul>
 </section>

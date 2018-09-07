@@ -10,22 +10,35 @@ import { InfoService } from '../info.service'
 export class SearchBarComponent implements OnInit {
 
   query = '';
-  wiki;
+
   info = '';
   picture;
-  pictureInfo ='';
+  pictureInfo = '';
   pictureAuthor = '';
   news;
-
+  wiki;
+  hasWiki = false;
+  wikiTitle = '';
+  wikiInfo = '';
+  wikiAnchor = '';
 
   constructor(private apiService: ApiService, private infoService: InfoService) { }
 
   searchQuery = (query) => {
     //TODO: request API
     this.apiService.getWiki(query)
-    .then(response => this.wiki = response);
-    console.log('this.wiki');
-    console.log(this.wiki);
+      .then(response => {
+        if (response[1].length > 1) {
+          this.hasWiki = true;
+          this.wiki = response
+          this.wikiTitle = response[1];
+          this.wikiInfo = response[2];
+          this.wikiAnchor = response[3];
+        } else {
+          this.hasWiki = false;
+        }
+      });
+
     this.info = this.infoService.getInfo();
 
     this.apiService.getPicture(query)
@@ -36,9 +49,9 @@ export class SearchBarComponent implements OnInit {
       });
 
     this.apiService.getNews(query)
-    .then(response => {
-      this.news = response.response.docs;
-    });
+      .then(response => {
+        this.news = response.response.docs;
+      });
   }
 
   ngOnInit() {
