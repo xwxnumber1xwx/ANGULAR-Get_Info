@@ -1,0 +1,16 @@
+#search-input {
+    height: 30px;
+    width: 95%;
+    margin: 15px 0 15px 0;
+    text-align: center;
+}
+
+#search-bar {
+    width:100%;
+    height: auto;
+    background: grey;
+  }
+
+.news-list {
+    list-style: none;
+}

@@ -1,0 +1,30 @@
+<header id='search-bar'>
+  <form id='search-form'>
+    <input id='search-input' type="text" name="Search-bar" [(ngModel)]="query" placeholder="Your search...">
+    <button role="button" (click)="searchQuery(query)">Search!</button>
+  </form>
+</header>
+<section>
+  <figure *ngIf="picture">
+    <img src="{{ picture }}" alt="{{ pictureInfo }}">
+    <figcaption>Photo by {{pictureAuthor}} on Unsplash</figcaption>
+  </figure>
+</section>
+<section *ngIf="wiki">
+  <h2>Wikipedia</h2>
+  <ul class='news-list'>
+    <li *ngFor='let oneWiki of wiki'>
+      <ul *ngFor='let details of oneWiki'>
+        <h3>{{ details }}</h3>
+      </ul>
+    </li>
+</ul>
+</section>
+<section *ngIf="news">
+  <h2>News</h2>
+  <ul class='news-list'>
+    <li *ngFor="let oneNews of news">
+      <a href='{{oneNews.web_url}}'>{{ oneNews.snippet }}</a>
+    </li>
+  </ul>
+</section>
