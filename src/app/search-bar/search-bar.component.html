@@ -4,27 +4,28 @@
     <button role="button" (click)="searchQuery(query)">Search!</button>
   </form>
 </header>
-<section>
-  <figure *ngIf="picture">
-    <img src="{{ picture }}" alt="{{ pictureInfo }}">
-    <figcaption>Photo by {{pictureAuthor}} on Unsplash</figcaption>
-  </figure>
-</section>
-<div *ngIf="hasWiki">
-  <h2>Wikipedia</h2>
-  <ul class='news-list'>
-    <li *ngFor='let title of wikiTitle; let idx = index'>
-      <h3>{{title}}</h3>
-      <a href="{{ wikiAnchor[idx] }}"> {{ wikiInfo[idx] }}</a>
-    </li>
-  </ul>
-</div>
-
-<section *ngIf="news">
-  <h2>News</h2>
-  <ul class='news-list'>
-    <li *ngFor="let oneNews of news">
-      <a href='{{ oneNews.web_url }}'>{{ oneNews.snippet }}</a>
-    </li>
-  </ul>
-</section>
+<main id="main" class="row">
+  <section class="box-result col-2 img-size">
+    <figure *ngIf="picture">
+      <img class='img-unsplash' src="{{ picture }}" alt="{{ pictureInfo }}">
+      <figcaption id="figcap">Photo by {{pictureAuthor}} on Unsplash</figcaption>
+    </figure>
+  </section>
+  <section class="box-result col-2" *ngIf="hasWiki">
+    <h2>Wikipedia</h2>
+    <ul class='news-list'>
+      <li *ngFor='let title of wikiTitle; let idx = index'>
+        <h3>{{title}}</h3>
+        <a href="{{ wikiAnchor[idx] }}"> {{ wikiInfo[idx] }}</a>
+      </li>
+    </ul>
+  </section>
+  <section class="box-result col-1 center" *ngIf="news">
+    <h2>News</h2>
+    <ul class='news-list'>
+      <li *ngFor="let oneNews of news">
+        <p><a href='{{ oneNews.web_url }}'>{{ oneNews.snippet }}</a></p>
+      </li>
+    </ul>
+  </section>
+</main>
