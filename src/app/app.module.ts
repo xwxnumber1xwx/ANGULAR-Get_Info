@@ -4,19 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { DisplayInfoComponent } from './display-info/display-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchBarComponent,
-    DisplayInfoComponent
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [ DisplayInfoComponent ],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

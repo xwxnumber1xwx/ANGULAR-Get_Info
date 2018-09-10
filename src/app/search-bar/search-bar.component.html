@@ -1,11 +1,13 @@
 <header id='search-bar'>
   <form id='search-form'>
+    <div id="search-box">
     <input id='search-input' type="text" name="Search-bar" [(ngModel)]="query" placeholder="Your search...">
-    <button role="button" (click)="searchQuery(query)">Search!</button>
+    <input class="fontawesome-search button" type="submit" (click)="searchQuery(query)" name="go">
+  </div>
   </form>
 </header>
 <main id="main" class="row">
-  <section class="box-result col-2 img-size">
+  <section class="box-result col-1 img-size">
     <figure *ngIf="picture">
       <img class='img-unsplash' src="{{ picture }}" alt="{{ pictureInfo }}">
       <figcaption id="figcap">Photo by {{pictureAuthor}} on Unsplash</figcaption>
@@ -20,8 +22,8 @@
       </li>
     </ul>
   </section>
-  <section class="box-result col-1 center" *ngIf="news">
-    <h2>News</h2>
+  <section class="box-result col-2 center" *ngIf="news">
+    <h2>News - NY Times</h2>
     <ul class='news-list'>
       <li *ngFor="let oneNews of news">
         <p><a href='{{ oneNews.web_url }}'>{{ oneNews.snippet }}</a></p>

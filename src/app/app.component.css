@@ -1,6 +1,16 @@
+.font {
+    font-family: 'Roboto', sans-serif;
+}
+
 .middle {
     width: 80%;
     margin: auto;
     max-width: 1400px;
     margin: auto;
+}
+
+@media only screen and (max-width: 900px) {
+    .middle {
+        width: 100%;
+    }
 }
