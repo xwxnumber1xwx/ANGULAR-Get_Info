@@ -6,7 +6,8 @@ The purpose of this Single-page App is to get some information from New York Tim
 ## Installation
 
 For start the Web App you need to install the necessary module:
-in the console write: `$npm install`
+
+Run: `npm install`
 
 ## Development server
 
