@@ -28,7 +28,7 @@ export class ApiService {
 
   // get picture from Unsplash.com
   getPicture = (searchedForText) => {
-    return fetch(`https://api.unsplash.com/search/photos?page=1&query=${searchedForText}?orientation=landscape`, {
+    return fetch(`https://api.unsplash.com/search/photos?page=1&query=${searchedForText}&orientation=landscape`, {
       headers: {
         Authorization: 'Client-ID a48062502e7f4d944b4c6d7b38b9488eed4b6dbea4fc8039aa015fe3cf7790ff'
       }
